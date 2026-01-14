@@ -12,13 +12,16 @@ app.use(cors());
 app.use(express.json());
 
 /* routes */
-//root route
+//root
 app.get('/', (req, res) => {
     res.json({ message: 'Church Management API is running.' });
 });
 
 /* additional routes */
+// member routes
+import memberRouter from './routes/memberRouter.js';
+app.use('/api', memberRouter);
 
 
-
+/* export app */
 export default app;

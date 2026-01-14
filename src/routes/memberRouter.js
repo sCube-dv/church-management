@@ -1,10 +1,14 @@
 import express from 'express';
+import Member from '../controllers/memberController.js';
 
 const router = express.Router();
 
-// Example member route
-router.get('/members', (req, res) => {
-    res.json({ message: 'List of members' });
-});
+
+/* routes for Member */
+
+// Create a new member
+router.post('/members', Member.createMember);
+// Get all members
+router.get('/members', Member.getAllMembers);
 
 export default router;

@@ -24,6 +24,7 @@ const Member = db.sequelize.define(
         baptism_date: {
             type: db.Sequelize.DATEONLY,
             allowNull: true,
+            defaultValue: null,
         },
         phone: {
             type: db.Sequelize.STRING,

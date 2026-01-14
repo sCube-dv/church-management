@@ -1,0 +1,20 @@
+# api routes test file
+# root url
+@baseUrl = http://localhost:3000
+
+###
+# -> Create a new member
+POST {{baseUrl}}/api/members
+Content-Type: application/json
+
+{
+    "name": "Samuel Santos",
+    "cpf": "78456219532",
+    "birth_date": "1992-01-01",
+    "baptism_date": "2014-02-15",
+    "phone": "98999988999"
+}
+
+###
+# -> Get all members
+GET {{baseUrl}}/api/members
