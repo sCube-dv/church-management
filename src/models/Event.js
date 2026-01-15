@@ -9,7 +9,7 @@ const Event = db.sequelize.define(
             defaultValue: db.Sequelize.UUIDV4,
         },
         event_name: {
-            type: db.Sequelize.STRING,
+            type: db.Sequelize.STRING(100),
             allowNull: false,
         },
         event_date: {

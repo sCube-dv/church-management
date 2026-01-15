@@ -9,11 +9,11 @@ const Member = db.sequelize.define(
             defaultValue: db.Sequelize.UUIDV4,
         },
         name: {
-            type: db.Sequelize.STRING,
+            type: db.Sequelize.STRING(100),
             allowNull: false,
         },
         cpf: {
-            type: db.Sequelize.STRING,
+            type: db.Sequelize.STRING(11),
             allowNull: false,
             unique: true,
         },
@@ -27,7 +27,7 @@ const Member = db.sequelize.define(
             defaultValue: null,
         },
         phone: {
-            type: db.Sequelize.STRING,
+            type: db.Sequelize.STRING(15),
             allowNull: false,
         },
         status: {

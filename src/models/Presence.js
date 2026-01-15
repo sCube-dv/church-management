@@ -14,7 +14,7 @@ const Presence = db.sequelize.define(
             defaultValue: db.Sequelize.NOW,
         },
         observation: {
-            type: db.Sequelize.STRING,
+            type: db.Sequelize.TEXT,
             allowNull: true,
         }
     }

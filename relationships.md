@@ -1,6 +1,17 @@
 # Relacionamentos do Sistema de Gerenciamento de Igreja
 
-## **1. Member ↔ Finance (Um-para-Muitos)**
+## **1. User ↔ Member (Um-para-Muitos)**
+```
+User (1) ──→ (N) Member
+```
+- **Tipo**: Um-para-Muitos (One-to-Many)
+- **Descrição**: Um usuário (admin/gerenciador) pode gerenciar múltiplos membros da igreja
+- **Foreign Key**: `id_user` em `tb_members`
+- **Caso de uso**: Rastrear qual usuário criou/gerencia cada membro, permitindo auditoria e controle de acesso por gerenciador
+
+---
+
+## **2. Member ↔ Finance (Um-para-Muitos)**
 ```
 Member (1) ──→ (N) Finance
 ```
@@ -11,7 +22,7 @@ Member (1) ──→ (N) Finance
 
 ---
 
-## **2. Member ↔ Ministry (Um-para-Muitos)**
+## **3. Member ↔ Ministry (Um-para-Muitos)**
 ```
 Member (1) ──→ (N) Ministry
 ```
@@ -22,7 +33,7 @@ Member (1) ──→ (N) Ministry
 
 ---
 
-## **3. Member ↔ Event (Muitos-para-Muitos)**
+## **4. Member ↔ Event (Muitos-para-Muitos)**
 ```
 Member (N) ←→ (N) Event
         ↓
@@ -42,8 +53,14 @@ Member (N) ←→ (N) Event
 
 ```
 ┌─────────────────────────────────────────────────────────┐
+│                        User                             │
+│   (id_user, username, password, email, role, ...)       │
+└──────────────────┬──────────────────────────────────────┘
+                   │ 1:N
+                   ↓
+┌─────────────────────────────────────────────────────────┐
 │                        Member                           │
-│  (id_member, name, cpf, birth_date, status, ...)        │
+│  (id_member, name, cpf, birth_date, status, id_user, .)│
 └──┬──────────────────┬──────────────────────┬────────────┘
    │                  │                      │
    │ 1:N              │ 1:N                  │ N:N
@@ -59,14 +76,21 @@ Finance          Ministry              Presence
 
 ## **Fluxo de Dados Prático**
 
-1. **Novo membro cadastrado** → Pode registrar finanças e liderar ministérios
-2. **Evento criado** → Membros podem ser marcados como presentes via `Presence`
-3. **Contribuição financeira** → Registrada e vinculada ao membro específico
-4. **Liderança de ministério** → Um membro é associado a um ministério como líder
+1. **Novo usuário (admin) criado** → Pode gerenciar membros da igreja
+2. **Novo membro cadastrado** → Vinculado a um usuário (gerenciador), pode registrar finanças e liderar ministérios
+3. **Evento criado** → Membros podem ser marcados como presentes via `Presence`
+4. **Contribuição financeira** → Registrada e vinculada ao membro específico
+5. **Liderança de ministério** → Um membro é associado a um ministério como líder
 
 ---
 
 ## **Implementação Sequelize**
+
+### User - Member
+```javascript
+User.hasMany(Member, { foreignKey: 'id_user' });
+Member.belongsTo(User, { foreignKey: 'id_user' });
+```
 
 ### Member - Finance
 ```javascript

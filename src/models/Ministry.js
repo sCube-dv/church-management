@@ -9,7 +9,7 @@ const Ministry = db.sequelize.define(
             defaultValue: db.Sequelize.UUIDV4,
         },
         ministry_name: {
-            type: db.Sequelize.STRING,
+            type: db.Sequelize.STRING(50),
             allowNull: false,
         },
         description: {

@@ -1,4 +1,4 @@
-# church-management
+# 🏘️ Sistema de Gerenciamento de Igrejas
 
 Projeto Final a ser utilizado como base para avaliação da Etapa 3 do componente curricular Programação Web II do curso de Tecnologia em Análise e Desenvolvimento de Sistemas do IFMA Coelho Neto
 
@@ -21,7 +21,7 @@ Sistema de gerenciamento para igrejas, desenvolvido com Node.js, Express e MySQL
 - `sequelize` - ORM
 - `mysql2` - Driver MySQL
 - `jsonwebtoken` - Autenticação JWT
-- `bcryptjs` - Hash de senhas
+- `bcrypt` - Hash de senhas
 - `cors` - Cross-Origin Resource Sharing
 - `dotenv` - Variáveis de ambiente
 
@@ -51,7 +51,12 @@ Sistema de gerenciamento para igrejas, desenvolvido com Node.js, Express e MySQL
    cp .env.example .env
    cp compose.example.yml compose.yml
    ```
-   Edite os arquivos com suas credenciais.
+   Edite os arquivos com suas credenciais. Importante: configure as credenciais do superusuário em `.env`:
+   ```env
+   SUPERUSER_EMAIL=seu-email@church.com
+   SUPERUSER_USERNAME=seu-usuario
+   SUPERUSER_PASSWORD=sua-senha-forte
+   ```
 
 4. **Inicie o banco de dados**
    ```bash
@@ -62,6 +67,9 @@ Sistema de gerenciamento para igrejas, desenvolvido com Node.js, Express e MySQL
    ```bash
    npm run db-sync
    ```
+   Isso irá:
+   - Criar as tabelas do banco de dados
+   - Criar automaticamente o superusuário com as credenciais do `.env`
 
 6. **Inicie a aplicação**
    ```bash
@@ -85,12 +93,24 @@ Sistema de gerenciamento para igrejas, desenvolvido com Node.js, Express e MySQL
 ```
 src/
 ├── config/          # Configurações (banco de dados)
-├── controllers/     # Controladores
-├── helpers/         # Funções auxiliares
+├── controllers/     # Controladores (lógica das rotas)
+├── helpers/         # Funções auxiliares (sincronização BD)
 ├── middlewares/     # Middlewares Express
 ├── models/          # Modelos Sequelize
-└── routes/          # Rotas API
+├── routes/          # Rotas API
+└── services/        # Serviços (lógica de negócio)
+```
 
+### Camadas da Arquitetura
+
+- **Services** - Contém a lógica de negócio (CRUD, validações)
+- **Controllers** - Recebem requisições e chamam os services
+- **Models** - Definem a estrutura dos dados
+- **Routes** - Definem os endpoints da API
+
+## 📁 Arquivos de Configuração
+
+```
 compose.yml         # Configuração Docker (não versionada)
 compose.example.yml # Exemplo de configuração
 .env               # Variáveis de ambiente (não versionada)
@@ -100,18 +120,33 @@ server.js          # Ponto de entrada
 
 ## 📖 Modelos de Dados
 
+- **User** - Usuários do sistema (admin, member, guest) com autenticação
 - **Member** - Membros da igreja
 - **Ministry** - Ministérios
 - **Finance** - Finanças
 - **Event** - Eventos
 - **Presence** - Presença em eventos
 
+### Relacionamentos
+
+```
+User (1) ──→ (N) Member
+Member (1) ──→ (N) Finance
+Member (1) ──→ (N) Ministry
+Member (N) ←→ (N) Event (via Presence)
+```
+
+Para mais detalhes sobre os relacionamentos, consulte [relationships.md](relationships.md)
+
 ## 🔒 Segurança
 
-- Senhas hasheadas com bcryptjs
+- Senhas hasheadas com bcrypt
 - Autenticação via JWT
 - Variáveis sensíveis em `.env`
 - `compose.yml` no `.gitignore`
+- Validação de email em usuários
+- Sistema de roles (admin, member, guest)
+- Superusuário criado automaticamente na sincronização do BD
 
 ## 📝 Licença
 
