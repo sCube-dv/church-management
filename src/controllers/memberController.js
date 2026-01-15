@@ -1,38 +1,25 @@
-import Member from '../models/Member.js';
+import MemberService from '../services/memberService.js';
 
 /* class MemberController */
 
 class MemberController {
-    // empty constructor
-    constructor() { }
 
     // Create a new member
-    async createMember(req, res) {
+    static async createMember(req, res) {
         try {
-            // receive data from req.body
-            const { name, cpf, birth_date, baptism_date, phone } = req.body;
-
-            // create new member
-            const newMember = await Member.create({
-                name,
-                cpf,
-                birth_date,
-                baptism_date,
-                phone
-            });
-
-            // respond with the created member
+            // call the service to create
+            const newMember = await MemberService.createMember(req.body);
             res.status(201).json({ message: 'Membro: ' + newMember.name + ' cadastrado com sucesso!' });
         } catch (error) {
-            // handle errors
             res.status(500).json({ error: error.message });
         }
     } // end createMember
 
     // Get all members
-    async getAllMembers(req, res) {
+    static async getAllMembers(req, res) {
         try {
-            const members = await Member.findAll();
+            // call the service to get all members
+            const members = await MemberService.getAllMembers();
             res.status(200).json(members);
         } catch (error) {
             res.status(500).json({ error: error.message });
@@ -41,6 +28,10 @@ class MemberController {
 
     // Get member by ID
 
+    // Delete member by ID
+
+
+
 }
 
-export default new MemberController();
+export default MemberController;
