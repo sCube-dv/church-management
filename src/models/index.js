@@ -24,4 +24,4 @@ Member.belongsToMany(Event, { through: Presence, foreignKey: 'id_member' });
 Event.belongsToMany(Member, { through: Presence, foreignKey: 'id_event' });
 
 
-export { Member, Ministry, Finance, Event, Presence, User };
+export { User, Member, Ministry, Finance, Event, Presence };

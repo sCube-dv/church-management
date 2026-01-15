@@ -2,12 +2,12 @@ import { Member, Ministry, Finance, Event, Presence, User } from "../models/inde
 import bcrypt from 'bcryptjs';
 
 /* Initialize database tables */
+await User.sync();
 await Member.sync();
 await Ministry.sync();
 await Finance.sync();
 await Event.sync();
 await Presence.sync();
-await User.sync();
 
 /* Create superuser if it doesn't exist */
 const superuserEmail = process.env.SUPERUSER_EMAIL || "admin@church.com";
