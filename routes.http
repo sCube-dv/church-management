@@ -3,6 +3,26 @@
 @baseUrl = http://localhost:3000
 
 ###
+# -> Create a new user profile
+POST {{baseUrl}}/api/users
+Content-Type: application/json
+
+{
+    "username": "membro",
+    "password": "membro@123",
+    "email": "membro@church.com",
+    "role": "member"
+}
+
+###
+# -> Get all users profiles
+GET {{baseUrl}}/api/users
+
+# ======================================================== #
+#                       tb_members                         #
+# ======================================================== #
+
+###
 # -> Create a new member
 POST {{baseUrl}}/api/members
 Content-Type: application/json

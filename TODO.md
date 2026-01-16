@@ -110,7 +110,7 @@ VALUES (UUID(), '2026-01-19 10:15:00', 'present', <id_member>, <id_event>)
 ## Segurança
 - [ ] Validar senhas no ambiente (.env)
 - [ ] Adicionar CORS
-- [ ] Rate limiting
+- [] Rate limiting
 - [ ] Validação de entrada (sanitização)
 
 ## Deploy

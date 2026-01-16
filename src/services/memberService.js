@@ -1,9 +1,9 @@
 import Member from '../models/Member.js';
 
 /* MemberService - Logic to manage members */
-
 class MemberService {
 
+    /* Methods */
     // Create a new member
     static async createMember(memberData) {
         const { name, cpf, birth_date, baptism_date, phone } = memberData;

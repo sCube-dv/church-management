@@ -3,7 +3,6 @@ import Member from '../controllers/memberController.js';
 
 const router = express.Router();
 
-
 /* routes for Member */
 
 // Create a new member

@@ -22,6 +22,10 @@ app.get('/', (req, res) => {
 import memberRouter from './routes/memberRouter.js';
 app.use('/api', memberRouter);
 
+// user routes
+import userRouter from './routes/userRouter.js';
+app.use('/api', userRouter);
+
 
 /* export app */
 export default app;
