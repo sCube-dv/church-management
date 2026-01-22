@@ -1,29 +1,75 @@
-# api routes test file
-# root url
+# ========================================================
+# API Routes Test File
+# Sistema de Gerenciamento de Igrejas
+# ========================================================
+
 @baseUrl = http://localhost:3000
+@token = seu-token-jwt-aqui
+
+# ========================================================
+#                    AUTENTICAÇÃO
+# ========================================================
 
 ###
-# -> Create a new user profile
-POST {{baseUrl}}/api/users
+# Login de usuário
+POST {{baseUrl}}/api/users/login
 Content-Type: application/json
 
 {
-    "username": "membro",
-    "password": "membro@123",
-    "email": "membro@church.com",
+    "email": "admin@church.com",
+    "password": "sua-senha"
+}
+
+# ========================================================
+#                    USUÁRIOS (tb_users)
+# ========================================================
+
+###
+# Criar novo usuário
+POST {{baseUrl}}/api/users/create
+Content-Type: application/json
+
+{
+    "username": "novo_membro",
+    "password": "senha@123",
+    "email": "novo.membro@church.com",
     "role": "member"
 }
 
 ###
-# -> Get all users profiles
-GET {{baseUrl}}/api/users
-
-# ======================================================== #
-#                       tb_members                         #
-# ======================================================== #
+# Listar todos os usuários (REQUER AUTENTICAÇÃO)
+GET {{baseUrl}}/api/users/get-all
+Authorization: Bearer {{token}}
 
 ###
-# -> Create a new member
+# Buscar usuário por ID
+GET {{baseUrl}}/api/users/get/550e8400-e29b-41d4-a716-446655440001
+
+###
+# Atualizar usuário
+PUT {{baseUrl}}/api/users/update/550e8400-e29b-41d4-a716-446655440001
+Content-Type: application/json
+
+{
+    "username": "usuario_atualizado",
+    "email": "atualizado@church.com",
+    "role": "admin"
+}
+
+###
+# Deletar usuário (soft delete)
+DELETE {{baseUrl}}/api/users/delete/550e8400-e29b-41d4-a716-446655440001
+
+###
+# Deletar usuário permanentemente (hard delete)
+DELETE {{baseUrl}}/api/users/delete/550e8400-e29b-41d4-a716-446655440001/hard
+
+# ========================================================
+#                    MEMBROS (tb_members)
+# ========================================================
+
+###
+# Criar novo membro
 POST {{baseUrl}}/api/members
 Content-Type: application/json
 
@@ -32,9 +78,41 @@ Content-Type: application/json
     "cpf": "78456219532",
     "birth_date": "1992-01-01",
     "baptism_date": "2014-02-15",
-    "phone": "98999988999"
+    "phone": "98999988999",
+    "status": "active",
+    "id_user": "550e8400-e29b-41d4-a716-446655440001"
 }
 
 ###
-# -> Get all members
+# Listar todos os membros
 GET {{baseUrl}}/api/members
+
+###
+# Buscar membro por ID
+GET {{baseUrl}}/api/members/660e8400-e29b-41d4-a716-446655440001
+
+###
+# Atualizar membro
+PUT {{baseUrl}}/api/members/660e8400-e29b-41d4-a716-446655440001
+Content-Type: application/json
+
+{
+    "name": "Samuel Santos Silva",
+    "phone": "98999999999",
+    "status": "active"
+}
+
+###
+# Deletar membro
+DELETE {{baseUrl}}/api/members/660e8400-e29b-41d4-a716-446655440001
+
+# ========================================================
+#                    NOTAS
+# ========================================================
+# 
+# 1. Substitua {{token}} pelo token JWT recebido no login
+# 2. Use UUIDs válidos existentes no banco de dados
+# 3. Rotas marcadas com "REQUER AUTENTICAÇÃO" precisam do header Authorization
+# 4. Para testar, use extensões como REST Client (VS Code)
+#
+# ========================================================

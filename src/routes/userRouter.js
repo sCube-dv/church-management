@@ -8,17 +8,17 @@ const router = express.Router();
 /* routes for User */
 
 // Create a new user
-router.post('/users', User.createUser);
+router.post('/users/create', User.createUser);
 // Get all users
-router.get('/users', auth, User.getAllUsers);
+router.get('/users/get-all', auth, User.getAllUsers);
 // Get user by ID
-router.get('/users/:id', User.getUserById);
+router.get('/users/get/:id', User.getUserById);
 // Update user by ID
-router.put('/users/:id', User.updateUser);
+router.put('/users/update/:id', User.updateUser);
 // Delete user by ID (soft delete)
-router.delete('/users/:id', User.deleteUser);
+router.delete('/users/delete/:id', User.deleteUser);
 // Delete user by ID (hard delete)
-router.delete('/users/:id/hard', User.hardDeleteUser);
+router.delete('/users/delete/:id/hard', User.hardDeleteUser);
 // Login user
 router.post('/users/login', User.loginUser);
 
