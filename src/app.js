@@ -18,13 +18,14 @@ app.get('/', (req, res) => {
 });
 
 /* additional routes */
+// user routes
+import userRouter from './routes/userRouter.js';
+app.use('/api', userRouter);
+
 // member routes
 import memberRouter from './routes/memberRouter.js';
 app.use('/api', memberRouter);
 
-// user routes
-import userRouter from './routes/userRouter.js';
-app.use('/api', userRouter);
 
 
 /* export app */

@@ -27,9 +27,9 @@ const sequelize = new Sequelize(
 /* connection testing */
 try {
     await sequelize.authenticate();
-    console.log("Conexão com o banco de dados estabelecida com sucesso.");
+    console.log("Database connection established successfully.");
 } catch (error) {
-    console.error("Não foi possível conectar ao banco de dados:", error);
+    console.error("Database connection failed: ", error);
 }
 
 export default { sequelize, Sequelize };

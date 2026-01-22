@@ -8,7 +8,7 @@ const Finance = db.sequelize.define(
             primaryKey: true,
             defaultValue: db.Sequelize.UUIDV4,
         },
-        value: {
+        amount: {
             type: db.Sequelize.DECIMAL(10, 2),
             allowNull: false,
         },

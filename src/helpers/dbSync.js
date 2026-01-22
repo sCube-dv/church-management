@@ -18,7 +18,8 @@ try {
     const existingUser = await User.findOne({ where: { email: superuserEmail } });
 
     if (!existingUser) {
-        const hashedPassword = await bcrypt.hash(superuserPassword, 10);
+        const salt = bcrypt.genSaltSync(10);
+        const hashedPassword = bcrypt.hashSync(superuserPassword, salt);
 
         await User.create({
             username: superuserUsername,
