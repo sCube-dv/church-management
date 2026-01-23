@@ -8,13 +8,17 @@ const Ministry = db.sequelize.define(
             primaryKey: true,
             defaultValue: db.Sequelize.UUIDV4,
         },
-        ministry_name: {
+        name: {
             type: db.Sequelize.STRING(50),
             allowNull: false,
         },
         description: {
             type: db.Sequelize.TEXT,
             allowNull: true,
+        },
+        is_active: {
+            type: db.Sequelize.BOOLEAN,
+            defaultValue: true,
         }
     }
 );

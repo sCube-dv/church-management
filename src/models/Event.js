@@ -8,7 +8,7 @@ const Event = db.sequelize.define(
             primaryKey: true,
             defaultValue: db.Sequelize.UUIDV4,
         },
-        event_name: {
+        title: {
             type: db.Sequelize.STRING(100),
             allowNull: false,
         },
@@ -16,15 +16,15 @@ const Event = db.sequelize.define(
             type: db.Sequelize.DATE,
             allowNull: false,
         },
-        location: {
-            type: db.Sequelize.STRING,
-            allowNull: false,
-        },
         description: {
             type: db.Sequelize.TEXT,
             allowNull: true,
+        },
+        is_active: {
+            type: db.Sequelize.BOOLEAN,
+            defaultValue: true,
         }
     }
 );
 
-export default Event;  
+export default Event;

@@ -250,11 +250,61 @@ POST /api/users/login
 
 | Método | Endpoint | Descrição | Autenticação |
 |--------|----------|-----------|--------------|
-| POST | `/api/members` | Criar novo membro | Não |
-| GET | `/api/members` | Listar todos os membros | Não |
-| GET | `/api/members/:id` | Buscar membro por ID | Não |
-| PUT | `/api/members/:id` | Atualizar membro | Não |
-| DELETE | `/api/members/:id` | Deletar membro | Não |
+| POST | `/api/members/create` | Criar novo membro | **Sim** (JWT) |
+| GET | `/api/members/get-all` | Listar todos os membros | **Sim** (JWT) |
+| GET | `/api/members/get/:id` | Buscar membro por ID | **Sim** (JWT) |
+| PUT | `/api/members/update/:id` | Atualizar membro | **Sim** (JWT) |
+| DELETE | `/api/members/delete/:id` | Deletar membro (soft delete) | **Sim** (JWT) |
+| PATCH | `/api/members/activate/:id` | Ativar membro | **Sim** (JWT) |
+| DELETE | `/api/members/delete/:id/hard` | Deletar membro permanentemente | **Sim** (JWT) |
+
+### Eventos
+
+| Método | Endpoint | Descrição | Autenticação |
+|--------|----------|-----------|--------------|
+| POST | `/api/events/create` | Criar novo evento | **Sim** (JWT) |
+| GET | `/api/events/get-all` | Listar todos os eventos | **Sim** (JWT) |
+| GET | `/api/events/get/:id` | Buscar evento por ID | **Sim** (JWT) |
+| PUT | `/api/events/update/:id` | Atualizar evento | **Sim** (JWT) |
+| DELETE | `/api/events/delete/:id` | Deletar evento (soft delete) | **Sim** (JWT) |
+| PATCH | `/api/events/activate/:id` | Ativar evento | **Sim** (JWT) |
+| DELETE | `/api/events/delete/:id/hard` | Deletar evento permanentemente | **Sim** (JWT) |
+
+### Ministérios
+
+| Método | Endpoint | Descrição | Autenticação |
+|--------|----------|-----------|--------------|
+| POST | `/api/ministries/create` | Criar novo ministério | **Sim** (JWT) |
+| GET | `/api/ministries/get-all` | Listar todos os ministérios | **Sim** (JWT) |
+| GET | `/api/ministries/get/:id` | Buscar ministério por ID | **Sim** (JWT) |
+| PUT | `/api/ministries/update/:id` | Atualizar ministério | **Sim** (JWT) |
+| DELETE | `/api/ministries/delete/:id` | Deletar ministério (soft delete) | **Sim** (JWT) |
+| PATCH | `/api/ministries/activate/:id` | Ativar ministério | **Sim** (JWT) |
+| DELETE | `/api/ministries/delete/:id/hard` | Deletar ministério permanentemente | **Sim** (JWT) |
+
+### Finanças
+
+| Método | Endpoint | Descrição | Autenticação |
+|--------|----------|-----------|--------------|
+| POST | `/api/finances/create` | Criar novo lançamento | **Sim** (JWT) |
+| GET | `/api/finances/get-all` | Listar todos os lançamentos | **Sim** (JWT) |
+| GET | `/api/finances/get/:id` | Buscar lançamento por ID | **Sim** (JWT) |
+| PUT | `/api/finances/update/:id` | Atualizar lançamento | **Sim** (JWT) |
+| DELETE | `/api/finances/delete/:id` | Deletar lançamento (soft delete) | **Sim** (JWT) |
+| PATCH | `/api/finances/activate/:id` | Ativar lançamento | **Sim** (JWT) |
+| DELETE | `/api/finances/delete/:id/hard` | Deletar lançamento permanentemente | **Sim** (JWT) |
+
+### Presença
+
+| Método | Endpoint | Descrição | Autenticação |
+|--------|----------|-----------|--------------|
+| POST | `/api/presences/create` | Registrar presença | **Sim** (JWT) |
+| GET | `/api/presences/get-all` | Listar todas as presenças | **Sim** (JWT) |
+| GET | `/api/presences/get/:id` | Buscar presença por ID | **Sim** (JWT) |
+| PUT | `/api/presences/update/:id` | Atualizar presença | **Sim** (JWT) |
+| DELETE | `/api/presences/delete/:id` | Deletar presença (soft delete) | **Sim** (JWT) |
+| PATCH | `/api/presences/activate/:id` | Ativar presença | **Sim** (JWT) |
+| DELETE | `/api/presences/delete/:id/hard` | Deletar presença permanentemente | **Sim** (JWT) |
 
 **Nota:** Para rotas protegidas, inclua o token JWT no header:
 ```

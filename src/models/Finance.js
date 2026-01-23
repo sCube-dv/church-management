@@ -23,6 +23,10 @@ const Finance = db.sequelize.define(
         payment_method: {
             type: db.Sequelize.ENUM('cash', 'credit_card', 'debit_card', 'pix', 'bank_transfer'),
             allowNull: false,
+        },
+        is_active: {
+            type: db.Sequelize.BOOLEAN,
+            defaultValue: true,
         }
     }
 );

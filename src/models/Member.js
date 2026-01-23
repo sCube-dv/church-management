@@ -33,6 +33,15 @@ const Member = db.sequelize.define(
         status: {
             type: db.Sequelize.ENUM('active', 'inactive', 'visitor'),
             defaultValue: 'active',
+        },
+        id_user: { /* foreign key */
+            type: db.Sequelize.UUID,
+            allowNull: true,
+            defaultValue: 'id_userprofile_member',
+            references: {
+                model: 'tb_users',
+                key: 'id_user'
+            }
         }
     }
 );

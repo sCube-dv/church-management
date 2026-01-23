@@ -16,6 +16,10 @@ const Presence = db.sequelize.define(
         observation: {
             type: db.Sequelize.TEXT,
             allowNull: true,
+        },
+        is_active: {
+            type: db.Sequelize.BOOLEAN,
+            defaultValue: true,
         }
     }
 );

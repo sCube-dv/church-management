@@ -1,0 +1,56 @@
+@baseUrl = http://localhost:3000
+@token = seu-token-jwt-aqui
+
+# ========================================================
+#                  FINANÇAS (tb_finances)
+# ========================================================
+
+###
+# Criar novo lançamento
+POST {{baseUrl}}/api/finances/create
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "amount": 250.50,
+    "receipt_date": "2026-01-22 10:30:00",
+    "type": "tithe",
+    "payment_method": "pix",
+    "id_member": "660e8400-e29b-41d4-a716-446655440001"
+}
+
+###
+# Listar todos
+GET {{baseUrl}}/api/finances/get-all
+Authorization: Bearer {{token}}
+
+###
+# Buscar por ID
+GET {{baseUrl}}/api/finances/get/aa0e8400-e29b-41d4-a716-446655440001
+Authorization: Bearer {{token}}
+
+###
+# Atualizar
+PUT {{baseUrl}}/api/finances/update/aa0e8400-e29b-41d4-a716-446655440001
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "amount": 300.00,
+    "payment_method": "bank_transfer"
+}
+
+###
+# Deletar (soft)
+DELETE {{baseUrl}}/api/finances/delete/aa0e8400-e29b-41d4-a716-446655440001
+Authorization: Bearer {{token}}
+
+###
+# Ativar
+PATCH {{baseUrl}}/api/finances/activate/aa0e8400-e29b-41d4-a716-446655440001
+Authorization: Bearer {{token}}
+
+###
+# Deletar permanentemente (hard)
+DELETE {{baseUrl}}/api/finances/delete/aa0e8400-e29b-41d4-a716-446655440001/hard
+Authorization: Bearer {{token}}

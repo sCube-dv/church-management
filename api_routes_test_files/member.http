@@ -1,4 +1,5 @@
 @baseUrl = http://localhost:3000
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoiMTQ0NWM2ZDktNzg1OC00ZWNjLTlmN2YtMGU3OGU0MzhlNjkxIiwiaWF0IjoxNzY5MTg1MDUxLCJleHAiOjE3NjkxODg2NTF9.LjcacGy2DKBKmySIuSyLKxmUckVq-dg3xE6nrE-dRoI
 
 # ========================================================
 #                    MEMBROS (tb_members)
@@ -6,38 +7,51 @@
 
 ###
 # Criar novo membro
-POST {{baseUrl}}/api/members
+POST {{baseUrl}}/api/members/create
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
-    "name": "Samuel Santos",
-    "cpf": "78456219532",
-    "birth_date": "1992-01-01",
-    "baptism_date": "2014-02-15",
-    "phone": "98999988999",
+    "name": "José da Silva",
+    "cpf": "78456675532",
+    "birth_date": "1992-03-07",
+    "baptism_date": "2014-04-25",
+    "phone": "98999878899",
     "status": "active",
-    "id_user": "550e8400-e29b-41d4-a716-446655440001"
+    "id_user": "56a4ecf3-5ada-469b-8776-98a1c405941d"
 }
 
 ###
 # Listar todos os membros
-GET {{baseUrl}}/api/members
+GET {{baseUrl}}/api/members/get-all
+Authorization: Bearer {{token}}
 
 ###
 # Buscar membro por ID
-GET {{baseUrl}}/api/members/660e8400-e29b-41d4-a716-446655440001
+GET {{baseUrl}}/api/members/get/f038232a-ed9c-4725-b8c7-0d23c2f95421
+Authorization: Bearer {{token}}
 
 ###
 # Atualizar membro
-PUT {{baseUrl}}/api/members/660e8400-e29b-41d4-a716-446655440001
+PUT {{baseUrl}}/api/members/update/f038232a-ed9c-4725-b8c7-0d23c2f95421
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
-    "name": "Samuel Santos Silva",
-    "phone": "98999999999",
-    "status": "active"
+    "id_user": "1445c6d9-7858-4ecc-9f7f-0e78e438e691"
 }
 
 ###
-# Deletar membro
-DELETE {{baseUrl}}/api/members/660e8400-e29b-41d4-a716-446655440001
+# Deletar membro (soft delete)
+DELETE {{baseUrl}}/api/members/delete/aa96edd3-0a68-4e1c-a453-ad308747bd8c
+Authorization: Bearer {{token}}
+
+###
+# Ativar membro
+PATCH {{baseUrl}}/api/members/activate/aa96edd3-0a68-4e1c-a453-ad308747bd8c
+Authorization: Bearer {{token}}
+
+###
+# Deletar membro permanentemente (hard delete)
+DELETE {{baseUrl}}/api/members/delete/aa96edd3-0a68-4e1c-a453-ad308747bd8c/hard
+Authorization: Bearer {{token}}

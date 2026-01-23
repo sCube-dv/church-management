@@ -1,0 +1,54 @@
+@baseUrl = http://localhost:3000
+@token = seu-token-jwt-aqui
+
+# ========================================================
+#                 PRESENÇA (tb_presences)
+# ========================================================
+
+###
+# Registrar presença
+POST {{baseUrl}}/api/presences/create
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "presence_date": "2026-01-26 10:15:00",
+    "observation": "Presente no culto de domingo manhã",
+    "id_member": "660e8400-e29b-41d4-a716-446655440001",
+    "id_event": "770e8400-e29b-41d4-a716-446655440001"
+}
+
+###
+# Listar todas
+GET {{baseUrl}}/api/presences/get-all
+Authorization: Bearer {{token}}
+
+###
+# Buscar por ID
+GET {{baseUrl}}/api/presences/get/bb0e8400-e29b-41d4-a716-446655440001
+Authorization: Bearer {{token}}
+
+###
+# Atualizar
+PUT {{baseUrl}}/api/presences/update/bb0e8400-e29b-41d4-a716-446655440001
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "observation": "Presente e participou do louvor"
+}
+
+###
+# Deletar (soft)
+DELETE {{baseUrl}}/api/presences/delete/bb0e8400-e29b-41d4-a716-446655440001
+Authorization: Bearer {{token}}
+
+###
+# Ativar
+PATCH {{baseUrl}}/api/presences/activate/bb0e8400-e29b-41d4-a716-446655440001
+Authorization: Bearer {{token}}
+
+###
+# Deletar permanentemente (hard)
+DELETE {{baseUrl}}/api/presences/delete/bb0e8400-e29b-41d4-a716-446655440001/hard
+Authorization: Bearer {{token}}

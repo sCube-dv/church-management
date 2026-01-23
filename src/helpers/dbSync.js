@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 
 /* Initialize database tables */
 await User.sync();
-await Member.sync();
+await Member.sync({ alter: true });
 await Ministry.sync();
 await Finance.sync();
 await Event.sync();
