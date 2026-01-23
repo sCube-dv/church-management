@@ -72,18 +72,37 @@ class UserController {
 
             // call the service to delete user by id
             const deletedUser = await UserService.deleteUser(id_user);
-            
+
             if (!deletedUser) {
                 return res.status(404).json({ message: 'Usuário não encontrado!' });
             }
 
-            res.status(200).json({ message: 'Usuário deletado com sucesso!' });
-            
+            res.status(200).json({ message: 'Usuário ' + deletedUser.username + ' deletado com sucesso!' });
+
         } catch (error) {
             res.status(500).json({ error: error.message });
         }
     } // end deleteUser
-    
+
+    // Activate user by ID
+    static async activateUser(req, res) {
+        try {
+            const id_user = req.params.id;
+
+            // call the service to activate user by id
+            const activatedUser = await UserService.activateUser(id_user);
+
+            if (!activatedUser) {
+                return res.status(404).json({ message: 'Usuário não encontrado!' });
+            }
+
+            res.status(200).json({ message: 'Usuário ' + activatedUser.username + ' ativado com sucesso!' });
+
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    } // end activateUser
+
     // Delete user by ID (hard delete)
     static async hardDeleteUser(req, res) {
         try {
@@ -91,13 +110,13 @@ class UserController {
 
             // call the service to hard delete user by id
             const hardDeletedUser = await UserService.hardDeleteUser(id_user);
-            
+
             if (!hardDeletedUser) {
                 return res.status(404).json({ message: 'Usuário não encontrado!' });
             }
 
-            res.status(200).json({ message: 'Usuário deletado permanentemente com sucesso!' });
-            
+            res.status(200).json({ message: 'Usuário deletado permanentemente!' });
+
         } catch (error) {
             res.status(500).json({ error: error.message });
         }
@@ -112,12 +131,12 @@ class UserController {
 
             // call the service to authenticate user
             const user = await UserService.loginUser({ username, password });
-            
+
             if (!user) {
                 return res.status(401).json({ message: 'Credenciais inválidas!' });
             }
             res.status(200).json({ message: 'Usuário ' + user.username + ' logado com sucesso! Token: ' + user.token });
-            
+
         } catch (error) {
             res.status(500).json({ error: error.message });
         }

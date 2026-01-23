@@ -113,8 +113,31 @@ class UserService {
             }
         });
 
-        return true;
+        return user;
     } // end deleteUser
+
+    // Activate user by id
+    static async activateUser(id_user) {
+        const user = await User.findOne({
+            where: {
+                id_user: id_user,
+                is_active: false
+            }
+        });
+
+        if (!user) {
+            return null; // User not found
+        }
+
+        // Activate user by setting is_active to true
+        await User.update({ is_active: true }, {
+            where: {
+                id_user: id_user
+            }
+        });
+
+        return user;
+    } // end activateUser
 
     // Delete user by id (hard delete)
     static async hardDeleteUser(id_user) {

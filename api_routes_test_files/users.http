@@ -4,7 +4,7 @@
 # ========================================================
 
 @baseUrl = http://localhost:3000
-@token = seu-token-jwt-aqui
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoiMWY3YTMwZWEtM2U2MS00ZTM0LTk2MDAtZjMwODNiMjc1ZWZkIiwiaWF0IjoxNzY5MTE5ODE1LCJleHAiOjE3NjkxMjM0MTV9.IgT5N03dfOTijYPUoQsNtQ_KRmdMU2nq5KH5AXSCRI8
 
 # ========================================================
 #                    AUTENTICAÇÃO
@@ -16,8 +16,8 @@ POST {{baseUrl}}/api/users/login
 Content-Type: application/json
 
 {
-    "email": "admin@church.com",
-    "password": "sua-senha"
+    "username": "admin",
+    "password": "admin@123"
 }
 
 # ========================================================
@@ -58,53 +58,16 @@ Content-Type: application/json
 
 ###
 # Deletar usuário (soft delete)
-DELETE {{baseUrl}}/api/users/delete/550e8400-e29b-41d4-a716-446655440001
+DELETE {{baseUrl}}/api/users/delete/93e4da62-b772-49a4-b795-30936e3e82e8
+
+###
+# Ativar usuário
+PATCH {{baseUrl}}/api/users/activate/93e4da62-b772-49a4-b795-30936e3e82e8
 
 ###
 # Deletar usuário permanentemente (hard delete)
-DELETE {{baseUrl}}/api/users/delete/550e8400-e29b-41d4-a716-446655440001/hard
+DELETE {{baseUrl}}/api/users/delete/550e8400-e29b-41d4-a716-446655440003/hard
 
-# ========================================================
-#                    MEMBROS (tb_members)
-# ========================================================
-
-###
-# Criar novo membro
-POST {{baseUrl}}/api/members
-Content-Type: application/json
-
-{
-    "name": "Samuel Santos",
-    "cpf": "78456219532",
-    "birth_date": "1992-01-01",
-    "baptism_date": "2014-02-15",
-    "phone": "98999988999",
-    "status": "active",
-    "id_user": "550e8400-e29b-41d4-a716-446655440001"
-}
-
-###
-# Listar todos os membros
-GET {{baseUrl}}/api/members
-
-###
-# Buscar membro por ID
-GET {{baseUrl}}/api/members/660e8400-e29b-41d4-a716-446655440001
-
-###
-# Atualizar membro
-PUT {{baseUrl}}/api/members/660e8400-e29b-41d4-a716-446655440001
-Content-Type: application/json
-
-{
-    "name": "Samuel Santos Silva",
-    "phone": "98999999999",
-    "status": "active"
-}
-
-###
-# Deletar membro
-DELETE {{baseUrl}}/api/members/660e8400-e29b-41d4-a716-446655440001
 
 # ========================================================
 #                    NOTAS

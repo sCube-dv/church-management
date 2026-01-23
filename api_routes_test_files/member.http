@@ -1,0 +1,43 @@
+@baseUrl = http://localhost:3000
+
+# ========================================================
+#                    MEMBROS (tb_members)
+# ========================================================
+
+###
+# Criar novo membro
+POST {{baseUrl}}/api/members
+Content-Type: application/json
+
+{
+    "name": "Samuel Santos",
+    "cpf": "78456219532",
+    "birth_date": "1992-01-01",
+    "baptism_date": "2014-02-15",
+    "phone": "98999988999",
+    "status": "active",
+    "id_user": "550e8400-e29b-41d4-a716-446655440001"
+}
+
+###
+# Listar todos os membros
+GET {{baseUrl}}/api/members
+
+###
+# Buscar membro por ID
+GET {{baseUrl}}/api/members/660e8400-e29b-41d4-a716-446655440001
+
+###
+# Atualizar membro
+PUT {{baseUrl}}/api/members/660e8400-e29b-41d4-a716-446655440001
+Content-Type: application/json
+
+{
+    "name": "Samuel Santos Silva",
+    "phone": "98999999999",
+    "status": "active"
+}
+
+###
+# Deletar membro
+DELETE {{baseUrl}}/api/members/660e8400-e29b-41d4-a716-446655440001

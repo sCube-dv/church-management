@@ -17,13 +17,11 @@ router.get('/users/get/:id', User.getUserById);
 router.put('/users/update/:id', User.updateUser);
 // Delete user by ID (soft delete)
 router.delete('/users/delete/:id', User.deleteUser);
+// Activate user by ID
+router.patch('/users/activate/:id', User.activateUser);
 // Delete user by ID (hard delete)
 router.delete('/users/delete/:id/hard', User.hardDeleteUser);
 // Login user
 router.post('/users/login', User.loginUser);
-
-// Additional route to activate a user
-// Activate user by ID
-// router.patch('/users/:id/activate', User.activateUser);
 
 export default router;
