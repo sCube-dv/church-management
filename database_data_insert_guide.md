@@ -164,29 +164,29 @@ VALUES (
 **Motivo**: Registros financeiros são vinculados a membros
 
 ```sql
-INSERT INTO tb_finances (id_finance, amount, type, date, description, id_member)
+INSERT INTO tb_finances (id_launch, amount, type, receipt_date, payment_method, id_member)
 VALUES (
     UUID(), 
     150.00, 
     'tithe', 
-    '2026-01-22', 
-    'Dízimo referente a janeiro/2026', 
+    '2026-01-22 10:30:00', 
+    'pix',
     'uuid-do-membro' -- Deve existir em tb_members
 );
 ```
 
 **Campos**:
-- `id_finance`: UUID gerado automaticamente
+- `id_launch`: UUID gerado automaticamente
 - `amount`: Valor decimal (ex: `100.00`)
-- `type`: `'tithe'` (dízimo), `'offering'` (oferta), `'donation'` (doação)
-- `date`: Data no formato `YYYY-MM-DD`
-- `description`: Descrição do lançamento
+- `type`: `'tithe'` (dízimo), `'offering'` (oferta), `'missions'` (missões)
+- `receipt_date`: Data e hora no formato `YYYY-MM-DD HH:MM:SS`
+- `payment_method`: `'cash'`, `'credit_card'`, `'debit_card'`, `'pix'`, `'bank_transfer'`
 - `id_member`: **FK** - UUID do membro doador
 
 **💰 Tipos de lançamento**:
 - `tithe`: Dízimo (10% da renda)
 - `offering`: Oferta voluntária
-- `donation`: Doação específica
+- `missions`: Contribuição para missões
 
 ---
 
@@ -296,13 +296,13 @@ VALUES (
 );
 
 -- 4. Registrar dízimo do membro
-INSERT INTO tb_finances (id_finance, amount, type, date, description, id_member)
+INSERT INTO tb_finances (id_launch, amount, type, receipt_date, payment_method, id_member)
 VALUES (
     '550e8400-e29b-41d4-a716-446655440004',
     200.00,
     'tithe',
-    '2026-01-22',
-    'Dízimo de janeiro',
+    '2026-01-22 10:00:00',
+    'bank_transfer',
     '550e8400-e29b-41d4-a716-446655440002' -- Referencia o membro
 );
 

@@ -146,7 +146,7 @@ TODO.md                          # Tarefas e planejamento
 ### Dados de Teste
 ```
 insert-test-data.sql            # Script SQL com dados de exemplo
-routes.http                     # Exemplos de requisições HTTP
+api_routes_test_files/          # Pasta com exemplos de requisições HTTP (.http)
 ```
 
 ## � Variáveis de Ambiente
@@ -197,7 +197,11 @@ Member (1) ──→ (N) Ministry
 Member (N) ←→ (N) Event (via Presence)
 ```
 
-Para mais detalhes sobre os relacionamentos, consulte [relationships.md](relationships.md)
+### Diagrama do Banco de Dados (DER)
+
+![Diagrama Entidade Relacionamento (DER)](der_db_church_mngt.png)
+
+Para mais detalhes sobre os relacionamentos, consulte **[`relationships.md`](relationships.md)** e **[`database_data_insert_guide.md`](database_data_insert_guide.md)**
 
 ## 🔌 API Endpoints
 
@@ -234,12 +238,13 @@ POST /api/users/login
 
 | Método | Endpoint | Descrição | Autenticação |
 |--------|----------|-----------|--------------|
-| POST | `/api/users/create` | Criar novo usuário | Não |
+| POST | `/api/users/create` | Criar novo usuário | **Sim** (JWT) |
 | GET | `/api/users/get-all` | Listar todos os usuários | **Sim** (JWT) |
-| GET | `/api/users/get/:id` | Buscar usuário por ID | Não |
-| PUT | `/api/users/update/:id` | Atualizar usuário | Não |
-| DELETE | `/api/users/delete/:id` | Deletar usuário (soft delete) | Não |
-| DELETE | `/api/users/delete/:id/hard` | Deletar usuário permanentemente | Não |
+| GET | `/api/users/get/:id` | Buscar usuário por ID | **Sim** (JWT) |
+| PUT | `/api/users/update/:id` | Atualizar usuário | **Sim** (JWT) |
+| DELETE | `/api/users/delete/:id` | Deletar usuário (soft delete) | **Sim** (JWT) |
+| PATCH | `/api/users/activate/:id` | Ativar usuário | **Sim** (JWT) |
+| DELETE | `/api/users/delete/:id/hard` | Deletar usuário permanentemente | **Sim** (JWT) |
 
 ### Membros
 
@@ -258,7 +263,7 @@ Authorization: Bearer seu-token-jwt
 
 ### 🧪 Testando a API
 
-O projeto inclui um arquivo `routes.http` com exemplos de requisições para testar todos os endpoints. Você pode usar extensões como:
+O projeto inclui uma pasta `api_routes_test_files/` com exemplos de requisições para testar todos os endpoints. Você pode usar extensões como:
 
 - **REST Client** (VS Code)
 - **Thunder Client** (VS Code)
@@ -266,9 +271,10 @@ O projeto inclui um arquivo `routes.http` com exemplos de requisições para tes
 - **Insomnia**
 
 Exemplo de uso com REST Client:
-1. Abra o arquivo `routes.http`
-2. Clique em "Send Request" acima de cada requisição
-3. Visualize a resposta no painel lateral
+1. Navegue até a pasta `api_routes_test_files/`
+2. Abra um dos arquivos (ex: `users.http` ou `member.http`)
+3. Clique em "Send Request" acima de cada requisição
+4. Visualize a resposta no painel lateral
 
 
 ## 🗃️ Dados de Teste
@@ -334,7 +340,7 @@ Para informações mais detalhadas sobre aspectos específicos do projeto, consu
 | [📊 Guia de Inserção de Dados](database_data_insert_guide.md) | Ordem correta de povoamento, dependências e exemplos SQL |
 | [🔗 Relacionamentos](relationships.md) | Detalhes sobre relacionamentos entre tabelas do banco |
 | [📋 TODO](TODO.md) | Lista de tarefas, melhorias planejadas e roadmap |
-| [🧪 Testes HTTP](routes.http) | Exemplos de requisições para testar a API |
+| [🧪 Testes HTTP](api_routes_test_files/) | Exemplos de requisições para testar a API |
 | [💾 Dados de Teste](insert-test-data.sql) | Script SQL com dados de exemplo prontos para uso |
 
 ## �📝 Licença

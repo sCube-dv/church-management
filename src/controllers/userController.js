@@ -122,8 +122,6 @@ class UserController {
         }
     } // end hardDeleteUser
 
-    // Activate user by ID
-
     // Login user
     static async loginUser(req, res) {
         try {
@@ -135,7 +133,7 @@ class UserController {
             if (!user) {
                 return res.status(401).json({ message: 'Credenciais inválidas!' });
             }
-            res.status(200).json({ message: 'Usuário ' + user.username + ' logado com sucesso! Token: ' + user.token });
+            res.status(200).json({ message: 'Usuário ' + user.username + ' logado com sucesso Token: ' + user.token });
 
         } catch (error) {
             res.status(500).json({ error: error.message });
