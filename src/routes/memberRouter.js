@@ -18,6 +18,9 @@ router.get('/members/role/:role', auth, Member.getMembersByRole);
 // Get members by ministry
 router.get('/members/ministry/:id', auth, Member.getMembersByMinistry);
 
+// Get members by finance type (tithe, offering, missions)
+router.get('/members/finance/type/:type', auth, Member.getMembersByFinanceType);
+
 // Get member by ID
 router.get('/members/get/:id', auth, Member.getMemberById);
 

@@ -57,7 +57,7 @@
 - [x] Deletar lançamento financeiro (soft delete)
 - [x] Ativar lançamento financeiro
 - [x] Deletar lançamento financeiro permanentemente (hard delete)
-- [ ] Listar membros por tipo de contribuição financeira (type)
+- [x] Listar membros por tipo de contribuição financeira (type)
 
 ### Controle de presença
 - [x] Cadastrar nova presença

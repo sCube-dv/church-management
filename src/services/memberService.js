@@ -1,4 +1,4 @@
-import { Member, User, Ministry } from '../models/index.js';
+import { Member, User, Ministry, Finance } from '../models/index.js';
 
 /* MemberService - Logic to manage members */
 class MemberService {
@@ -65,6 +65,23 @@ class MemberService {
         });
         return members;
     } // end getMembersByMinistry
+
+    // List members by finance type (tithe, offering, missions)
+    static async getMembersByFinanceType(type) {
+        const members = await Member.findAll({
+            where: {
+                status: 'active'
+            },
+            include: [{
+                model: Finance,
+                where: {
+                    type: type,
+                    is_active: true
+                }
+            }]
+        });
+        return members;
+    } // end getMembersByFinanceType
 
     // Get member by id
     static async getMemberById(memberId) {

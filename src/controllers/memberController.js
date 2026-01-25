@@ -48,6 +48,17 @@ class MemberController {
         }
     } // end getMembersByMinistry
 
+    // Get members by finance contribution type
+    static async getMembersByFinanceType(req, res) {
+        try {
+            const { type } = req.params;
+            const members = await MemberService.getMembersByFinanceType(type);
+            res.status(200).json(members);
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    } // end getMembersByFinanceType
+
     // Get member by ID
     static async getMemberById(req, res) {
         try {
