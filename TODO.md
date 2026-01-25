@@ -47,7 +47,7 @@
 - [x] Deletar ministério (soft delete)
 - [x] Ativar ministério
 - [x] Deletar ministério permanentemente (hard delete)
-- [ ] Listar membros por ministério
+- [x] Listar membros por ministério
 
 ### Finanças
 - [x] Cadastrar novo lançamento financeiro

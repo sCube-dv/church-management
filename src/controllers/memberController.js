@@ -37,6 +37,17 @@ class MemberController {
         }
     } // end getMembersByRole
 
+    // Get members by ministry
+    static async getMembersByMinistry(req, res) {
+        try {
+            const { id } = req.params;
+            const members = await MemberService.getMembersByMinistry(id);
+            res.status(200).json(members);
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    } // end getMembersByMinistry
+
     // Get member by ID
     static async getMemberById(req, res) {
         try {

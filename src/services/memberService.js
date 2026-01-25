@@ -1,4 +1,4 @@
-import { Member, User } from '../models/index.js';
+import { Member, User, Ministry } from '../models/index.js';
 
 /* MemberService - Logic to manage members */
 class MemberService {
@@ -48,6 +48,23 @@ class MemberService {
         });
         return members;
     } // end getMembersByRole
+
+    // List members by ministry
+    static async getMembersByMinistry(ministryId) {
+        const members = await Member.findAll({
+            where: {
+                status: 'active'
+            },
+            include: [{
+                model: Ministry,
+                where: {
+                    id_ministry: ministryId,
+                    is_active: true
+                }
+            }]
+        });
+        return members;
+    } // end getMembersByMinistry
 
     // Get member by id
     static async getMemberById(memberId) {

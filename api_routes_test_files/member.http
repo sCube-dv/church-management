@@ -32,6 +32,11 @@ GET {{baseUrl}}/api/members/role/admin
 Authorization: Bearer {{token}}
 
 ###
+# Listar membros por ministério
+GET {{baseUrl}}/api/members/ministry/444e1e61-897f-4cda-8949-2eeaa80553cc
+Authorization: Bearer {{token}}
+
+###
 # Buscar membro por ID
 GET {{baseUrl}}/api/members/get/f038232a-ed9c-4725-b8c7-0d23c2f95421
 Authorization: Bearer {{token}}
