@@ -1,5 +1,5 @@
 @baseUrl = http://localhost:3000
-@token = seu-token-jwt-aqui
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoiMTQ0NWM2ZDktNzg1OC00ZWNjLTlmN2YtMGU3OGU0MzhlNjkxIiwiaWF0IjoxNzY5MzE0MTA3LCJleHAiOjE3NjkzMTc3MDd9.imKfF9ZpErFgu-MjuycNN3IMW49JO6370tWb2CpyU3E
 
 # ========================================================
 #                 PRESENÇA (tb_presences)
@@ -12,10 +12,10 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-    "presence_date": "2026-01-26 10:15:00",
-    "observation": "Presente no culto de domingo manhã",
-    "id_member": "660e8400-e29b-41d4-a716-446655440001",
-    "id_event": "770e8400-e29b-41d4-a716-446655440001"
+    "presence_date": "2026-01-25 19:10:00",
+    "observation": "Presente no culto de Missões",
+    "id_member": "e3a7d35b-0971-4465-adff-e1d09cf766c8",
+    "id_event": "5c8f7ed6-d8cc-4655-a156-8b742bea662f"
 }
 
 ###
@@ -25,30 +25,31 @@ Authorization: Bearer {{token}}
 
 ###
 # Buscar por ID
-GET {{baseUrl}}/api/presences/get/bb0e8400-e29b-41d4-a716-446655440001
+GET {{baseUrl}}/api/presences/get/28bb7b6b-8d7c-4628-a923-e0379c1c2290
 Authorization: Bearer {{token}}
 
 ###
 # Atualizar
-PUT {{baseUrl}}/api/presences/update/bb0e8400-e29b-41d4-a716-446655440001
+PUT {{baseUrl}}/api/presences/update/28bb7b6b-8d7c-4628-a923-e0379c1c2290
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
+    "presence_date": "2026-01-25 19:20:00",
     "observation": "Presente e participou do louvor"
 }
 
 ###
 # Deletar (soft)
-DELETE {{baseUrl}}/api/presences/delete/bb0e8400-e29b-41d4-a716-446655440001
+DELETE {{baseUrl}}/api/presences/delete/c7b55457-ea9c-41d2-bc96-9649936008af
 Authorization: Bearer {{token}}
 
 ###
 # Ativar
-PATCH {{baseUrl}}/api/presences/activate/bb0e8400-e29b-41d4-a716-446655440001
+PATCH {{baseUrl}}/api/presences/activate/c7b55457-ea9c-41d2-bc96-9649936008af
 Authorization: Bearer {{token}}
 
 ###
 # Deletar permanentemente (hard)
-DELETE {{baseUrl}}/api/presences/delete/bb0e8400-e29b-41d4-a716-446655440001/hard
+DELETE {{baseUrl}}/api/presences/delete/b8142c9e-f957-4847-a691-a2dbd557d2d0/hard
 Authorization: Bearer {{token}}

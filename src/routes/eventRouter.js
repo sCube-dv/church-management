@@ -10,10 +10,10 @@ const router = express.Router();
 router.post('/events/create', auth, Event.createEvent);
 
 // Get all events
-router.get('/events/get-all', auth, Event.getAllEvents);
+router.get('/events/get-all', Event.getAllEvents);
 
 // Get event by ID
-router.get('/events/get/:id', auth, Event.getEventById);
+router.get('/events/get/:id', Event.getEventById);
 
 // Update event by ID
 router.put('/events/update/:id', auth, Event.updateEvent);

@@ -1,5 +1,5 @@
 @baseUrl = http://localhost:3000
-@token = seu-token-jwt-aqui
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoiMTQ0NWM2ZDktNzg1OC00ZWNjLTlmN2YtMGU3OGU0MzhlNjkxIiwiaWF0IjoxNzY5MzEwMjE2LCJleHAiOjE3NjkzMTM4MTZ9.vCofNRLqsz4XOWUrpoomIBXLhHqmPSZgSHidN66TIJg
 
 # ========================================================
 #                  FINANÇAS (tb_finances)
@@ -12,11 +12,11 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-    "amount": 250.50,
-    "receipt_date": "2026-01-22 10:30:00",
-    "type": "tithe",
+    "amount": 350.00,
+    "receipt_date": "2026-02-25 19:30:00",
+    "type": "offering",
     "payment_method": "pix",
-    "id_member": "660e8400-e29b-41d4-a716-446655440001"
+    "id_member": "e3a7d35b-0971-4465-adff-e1d09cf766c8"
 }
 
 ###
@@ -26,31 +26,31 @@ Authorization: Bearer {{token}}
 
 ###
 # Buscar por ID
-GET {{baseUrl}}/api/finances/get/aa0e8400-e29b-41d4-a716-446655440001
+GET {{baseUrl}}/api/finances/get/77fa9560-1a5b-43af-a7de-a87f061a6484
 Authorization: Bearer {{token}}
 
 ###
 # Atualizar
-PUT {{baseUrl}}/api/finances/update/aa0e8400-e29b-41d4-a716-446655440001
+PUT {{baseUrl}}/api/finances/update/77fa9560-1a5b-43af-a7de-a87f061a6484
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-    "amount": 300.00,
-    "payment_method": "bank_transfer"
+    "amount": 450.00,
+    "payment_method": "credit_card"
 }
 
 ###
 # Deletar (soft)
-DELETE {{baseUrl}}/api/finances/delete/aa0e8400-e29b-41d4-a716-446655440001
+DELETE {{baseUrl}}/api/finances/delete/79179186-55d3-458b-8297-d9ce9d40e2cf
 Authorization: Bearer {{token}}
 
 ###
 # Ativar
-PATCH {{baseUrl}}/api/finances/activate/aa0e8400-e29b-41d4-a716-446655440001
+PATCH {{baseUrl}}/api/finances/activate/79179186-55d3-458b-8297-d9ce9d40e2cf
 Authorization: Bearer {{token}}
 
 ###
 # Deletar permanentemente (hard)
-DELETE {{baseUrl}}/api/finances/delete/aa0e8400-e29b-41d4-a716-446655440001/hard
+DELETE {{baseUrl}}/api/finances/delete/79179186-55d3-458b-8297-d9ce9d40e2cf/hard
 Authorization: Bearer {{token}}

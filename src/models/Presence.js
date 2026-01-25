@@ -20,7 +20,23 @@ const Presence = db.sequelize.define(
         is_active: {
             type: db.Sequelize.BOOLEAN,
             defaultValue: true,
-        }
+        },
+        id_member: { // Foreign Key
+            type: db.Sequelize.UUID,
+            allowNull: false,
+            references: {
+                model: 'tb_members',
+                key: 'id_member',
+            },
+        },
+        id_event: { // Foreign Key
+            type: db.Sequelize.UUID,
+            allowNull: false,
+            references: {
+                model: 'tb_events',
+                key: 'id_event',
+            },
+        },
     }
 );
 

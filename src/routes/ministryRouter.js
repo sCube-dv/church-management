@@ -10,13 +10,13 @@ const router = express.Router();
 router.post('/ministries/create', auth, Ministry.createMinistry);
 
 // Get all
-router.get('/ministries/get-all', auth, Ministry.getAllMinistries);
+router.get('/ministries/get-all', Ministry.getAllMinistries);
 
 // Get by ID
-router.get('/ministries/get/:id', auth, Ministry.getMinistryById);
+router.get('/ministries/get/:id', Ministry.getMinistryById);
 
 // Update by ID
-router.put('/ministries/update/:id', auth, Ministry.updateMinistry);
+router.put('/ministries/update/:id', Ministry.updateMinistry);
 
 // Delete (soft)
 router.delete('/ministries/delete/:id', auth, Ministry.deleteMinistry);

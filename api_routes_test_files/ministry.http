@@ -1,5 +1,5 @@
 @baseUrl = http://localhost:3000
-@token = seu-token-jwt-aqui
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoiMTQ0NWM2ZDktNzg1OC00ZWNjLTlmN2YtMGU3OGU0MzhlNjkxIiwiaWF0IjoxNzY5MzEwMjE2LCJleHAiOjE3NjkzMTM4MTZ9.vCofNRLqsz4XOWUrpoomIBXLhHqmPSZgSHidN66TIJg
 
 # ========================================================
 #                MINISTÉRIOS (tb_ministries)
@@ -12,43 +12,41 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-    "name": "Ministério de Louvor",
-    "description": "Responsável pela música e adoração nos cultos",
-    "id_member": "660e8400-e29b-41d4-a716-446655440001"
+    "name": "Ministério teste",
+    "description": "Ministério teste",
+    "id_member": "f038232a-ed9c-4725-b8c7-0d23c2f95421"
 }
 
 ###
 # Listar todos
 GET {{baseUrl}}/api/ministries/get-all
-Authorization: Bearer {{token}}
 
 ###
 # Buscar por ID
-GET {{baseUrl}}/api/ministries/get/990e8400-e29b-41d4-a716-446655440001
-Authorization: Bearer {{token}}
+GET {{baseUrl}}/api/ministries/get/444e1e61-897f-4cda-8949-2eeaa80553cc
 
 ###
 # Atualizar
-PUT {{baseUrl}}/api/ministries/update/990e8400-e29b-41d4-a716-446655440001
+PUT {{baseUrl}}/api/ministries/update/444e1e61-897f-4cda-8949-2eeaa80553cc
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-    "name": "Ministério de Louvor - Sede",
-    "description": "Responsável pela adoração principal"
+    "name": "Ministério de EBD",
+    "description": "Responsável pela educação bíblica dos membros"
 }
 
 ###
 # Deletar (soft)
-DELETE {{baseUrl}}/api/ministries/delete/990e8400-e29b-41d4-a716-446655440001
+DELETE {{baseUrl}}/api/ministries/delete/444e1e61-897f-4cda-8949-2eeaa80553cc
 Authorization: Bearer {{token}}
 
 ###
 # Ativar
-PATCH {{baseUrl}}/api/ministries/activate/990e8400-e29b-41d4-a716-446655440001
+PATCH {{baseUrl}}/api/ministries/activate/444e1e61-897f-4cda-8949-2eeaa80553cc
 Authorization: Bearer {{token}}
 
 ###
 # Deletar permanentemente (hard)
-DELETE {{baseUrl}}/api/ministries/delete/990e8400-e29b-41d4-a716-446655440001/hard
+DELETE {{baseUrl}}/api/ministries/delete/b6b5bd1a-a720-4cd3-92d9-5e84ec3da6cf/hard
 Authorization: Bearer {{token}}

@@ -31,40 +31,45 @@
     - [ ] Listar todos os membros por tipo de usuário (role)  
 
 ### Eventos
-    - [ ] Cadastrar novo evento
-    - [ ] Listar todos os eventos
-    - [ ] Buscar evento por ID
-    - [ ] Atualizar evento
-    - [ ] Deletar evento (soft delete)
-    - [ ] Ativar evento
-    - [ ] Deletar evento permanentemente (hard delete)
+    - [x] Cadastrar novo evento [requer autenticação]
+    - [x] Listar todos os eventos
+    - [x] Buscar evento por ID
+    - [x] Atualizar evento [requer autenticação]
+    - [x] Deletar evento (soft delete) [requer autenticação]
+    - [x] Ativar evento [requer autenticação]
+    - [x] Deletar evento permanentemente (hard delete) [requer autenticação]
 
 ### Ministérios
-    - [ ] Cadastrar novo ministério
-    - [ ] Listar todos os ministérios
-    - [ ] Buscar ministério por ID
-    - [ ] Atualizar ministério
-    - [ ] Deletar ministério (soft delete)
-    - [ ] Ativar ministério
+    - [x] Cadastrar novo ministério
+    - [x] Listar todos os ministérios
+    - [x] Buscar ministério por ID
+    - [x] Atualizar ministério
+    - [x] Deletar ministério (soft delete)
+    - [x] Ativar ministério
+    - [x] Deletar ministério permanentemente (hard delete)
     - [ ] Listar membros por ministério
 
 ### Finanças
-    - [ ] Cadastrar nova finança
-    - [ ] Listar todas as finanças
-    - [ ] Buscar finança por ID
-    - [ ] Atualizar finança
-    - [ ] Deletar finança (soft delete)
-    - [ ] Ativar finança
+    - [x] Cadastrar novo lançamento financeiro
+    - [x] Listar todos os lançamentos financeiros
+    - [x] Buscar lançamento financeiro por ID
+    - [x] Atualizar lançamento financeiro
+    - [x] Deletar lançamento financeiro (soft delete)
+    - [x] Ativar lançamento financeiro
+    - [x] Deletar lançamento financeiro permanentemente (hard delete)
     - [ ] Listar membros por tipo de contribuição financeira (type)
 
 ### Controle de presença
-    - [ ] Cadastrar nova presença
-    - [ ] Listar todas as presenças
-    - [ ] Buscar presença por ID
-    - [ ] Atualizar presença
-    - [ ] Deletar presença (soft delete)
-    - [ ] Ativar presença
-    - [ ] Listar membros por evento
+    - [x] Cadastrar nova presença
+    - [x] Listar todas as presenças
+    - [x] Buscar presença por ID
+    - [x] Atualizar presença
+    - [x] Deletar presença (soft delete)
+    - [x] Ativar presença
+    - [x] Deletar presença permanentemente (hard)
+    - [ ] Listar presenças por evento
+    - [ ] Listar presenças por membro
+    - [ ] Listar presenças por data
 
 ## Testes
 - [ x ] Testes de integração com banco de dados

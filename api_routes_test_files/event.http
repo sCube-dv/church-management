@@ -1,5 +1,5 @@
 @baseUrl = http://localhost:3000
-@token = seu-token-jwt-aqui
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoiMTQ0NWM2ZDktNzg1OC00ZWNjLTlmN2YtMGU3OGU0MzhlNjkxIiwiaWF0IjoxNzY5MzEwMjE2LCJleHAiOjE3NjkzMTM4MTZ9.vCofNRLqsz4XOWUrpoomIBXLhHqmPSZgSHidN66TIJg
 
 # ========================================================
 #                    EVENTOS (tb_events)
@@ -12,43 +12,41 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-    "title": "Culto de Celebração",
-    "event_date": "2026-02-01 19:00:00",
-    "description": "Culto especial de celebração mensal"
+    "title": "Culto de Santa Ceia",
+    "event_date": "2026-01-01 19:00:00",
+    "description": "Culto de Santa Ceia"
 }
+
 
 ###
 # Listar todos os eventos
 GET {{baseUrl}}/api/events/get-all
-Authorization: Bearer {{token}}
 
 ###
 # Buscar evento por ID
-GET {{baseUrl}}/api/events/get/770e8400-e29b-41d4-a716-446655440001
-Authorization: Bearer {{token}}
+GET {{baseUrl}}/api/events/get/815faed5-582a-4646-b3b4-d33071d1199e
 
 ###
 # Atualizar evento
-PUT {{baseUrl}}/api/events/update/770e8400-e29b-41d4-a716-446655440001
+PUT {{baseUrl}}/api/events/update/815faed5-582a-4646-b3b4-d33071d1199e
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-    "title": "Culto Domingo Manhã - Especial",
-    "description": "Culto com apresentação especial do coro"
+    "description": "Culto Especial de Santa Ceia"
 }
 
 ###
 # Deletar evento (soft delete)
-DELETE {{baseUrl}}/api/events/delete/770e8400-e29b-41d4-a716-446655440001
+DELETE {{baseUrl}}/api/events/delete/815faed5-582a-4646-b3b4-d33071d1199e
 Authorization: Bearer {{token}}
 
 ###
 # Ativar evento
-PATCH {{baseUrl}}/api/events/activate/770e8400-e29b-41d4-a716-446655440001
+PATCH {{baseUrl}}/api/events/activate/815faed5-582a-4646-b3b4-d33071d1199e
 Authorization: Bearer {{token}}
 
 ###
 # Deletar evento permanentemente (hard delete)
-DELETE {{baseUrl}}/api/events/delete/770e8400-e29b-41d4-a716-446655440001/hard
+DELETE {{baseUrl}}/api/events/delete/815faed5-582a-4646-b3b4-d33071d1199e/hard
 Authorization: Bearer {{token}}

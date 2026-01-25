@@ -27,6 +27,14 @@ const Finance = db.sequelize.define(
         is_active: {
             type: db.Sequelize.BOOLEAN,
             defaultValue: true,
+        },
+        id_member: { /* expliciting the relationship with tb_members */
+            type: db.Sequelize.UUID,
+            allowNull: false,
+            references: {
+                model: 'tb_members',
+                key: 'id_member'
+            }
         }
     }
 );
