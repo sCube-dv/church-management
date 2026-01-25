@@ -1,7 +1,7 @@
 # TODO - Church Management
 
 ## Banco de Dados
-- [ ] Corrigir o script de seed com dados iniciais a fim de criar um banco de dados funcional
+- [ ] Corrigir o script de seed com dados iniciais a fim de criar um banco de dados funcional (apenas para desenvolvimento, arrumar depois)
 
 ## API
 - [x] Implementar autenticação de usuários (JWT)
@@ -18,7 +18,7 @@
 - [x] Deletar usuário (soft delete)
 - [x] Ativar usuário
 - [x] Deletar usuário permanentemente (hard delete)
-- [ ] Listar todos os usuários mesmo os com status inativo
+- [ ] Listar todos os usuários mesmo os com status inativo (apenas para admin)
 - [ ] Melhorar o gerenciamento das permissões de cada tipo de usuário de acordo com o tipo de usuário (role)
 
 ### Membros
@@ -67,16 +67,14 @@
 - [x] Deletar presença (soft delete)
 - [x] Ativar presença
 - [x] Deletar presença permanentemente (hard)
-- [ ] Listar presenças por evento
-- [ ] Listar presenças por membro
-- [ ] Listar presenças por data
+- [x] Listar membros por presença em evento
 
 ## Testes
-- [ x ] Testes de integração com banco de dados
-- [ ] Testes de API endpoints
+- [x] Testes de integração com banco de dados
+- [x] Testes de API endpoints
 
 ## Segurança
-- [ x ] Validar senhas no ambiente (.env)
-- [ x ] Adicionar CORS
-- [ x ] Autenticação de usuários (JWT)
+- [x] Validar senhas no ambiente (.env)
+- [x] Adicionar CORS
+- [x] Autenticação de usuários (JWT)
 

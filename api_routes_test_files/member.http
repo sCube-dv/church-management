@@ -42,6 +42,11 @@ GET {{baseUrl}}/api/members/finance/type/offering
 Authorization: Bearer {{token}}
 
 ###
+# Listar membros por presença em evento
+GET {{baseUrl}}/api/members/event/08636d84-bb9c-41fc-84de-ab8533fe04f1
+Authorization: Bearer {{token}}
+
+###
 # Buscar membro por ID
 GET {{baseUrl}}/api/members/get/f038232a-ed9c-4725-b8c7-0d23c2f95421
 Authorization: Bearer {{token}}

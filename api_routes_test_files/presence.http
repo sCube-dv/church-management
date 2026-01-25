@@ -1,5 +1,5 @@
 @baseUrl = http://localhost:3000
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoiMTQ0NWM2ZDktNzg1OC00ZWNjLTlmN2YtMGU3OGU0MzhlNjkxIiwiaWF0IjoxNzY5MzE0MTA3LCJleHAiOjE3NjkzMTc3MDd9.imKfF9ZpErFgu-MjuycNN3IMW49JO6370tWb2CpyU3E
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoiMTQ0NWM2ZDktNzg1OC00ZWNjLTlmN2YtMGU3OGU0MzhlNjkxIiwiaWF0IjoxNzY5MzY4MTM0LCJleHAiOjE3NjkzNzE3MzR9.h1HsGhEsZgNe6sVPVSSadlkAxZOYGdYD7yz7gF8p-tQ
 
 # ========================================================
 #                 PRESENÇA (tb_presences)
@@ -14,8 +14,8 @@ Authorization: Bearer {{token}}
 {
     "presence_date": "2026-01-25 19:10:00",
     "observation": "Presente no culto de Missões",
-    "id_member": "e3a7d35b-0971-4465-adff-e1d09cf766c8",
-    "id_event": "5c8f7ed6-d8cc-4655-a156-8b742bea662f"
+    "id_member": "beaaa548-11ad-4ad0-9680-a77a1bd59cfc",
+    "id_event": "08636d84-bb9c-41fc-84de-ab8533fe04f1"
 }
 
 ###

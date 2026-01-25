@@ -59,6 +59,17 @@ class MemberController {
         }
     } // end getMembersByFinanceType
 
+    // Get members by event attendance
+    static async getMembersByEvent(req, res) {
+        try {
+            const { id } = req.params;
+            const members = await MemberService.getMembersByEvent(id);
+            res.status(200).json(members);
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    } // end getMembersByEvent
+
     // Get member by ID
     static async getMemberById(req, res) {
         try {

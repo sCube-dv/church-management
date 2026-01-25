@@ -1,4 +1,4 @@
-import { Member, User, Ministry, Finance } from '../models/index.js';
+import { Member, User, Ministry, Finance, Event } from '../models/index.js';
 
 /* MemberService - Logic to manage members */
 class MemberService {
@@ -82,6 +82,26 @@ class MemberService {
         });
         return members;
     } // end getMembersByFinanceType
+
+    // List members by event presence
+    static async getMembersByEvent(eventId) {
+        const members = await Member.findAll({
+            where: {
+                status: 'active'
+            },
+            include: [{
+                model: Event,
+                where: {
+                    id_event: eventId,
+                    is_active: true
+                },
+                through: { /* Verify if the presence is active - join table (tb_presences) */
+                    where: { is_active: true }
+                }
+            }]
+        });
+        return members;
+    } // end getMembersByEvent
 
     // Get member by id
     static async getMemberById(memberId) {

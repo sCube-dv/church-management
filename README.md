@@ -72,7 +72,7 @@ Sistema de gerenciamento para igrejas, desenvolvido com Node.js, Express e MySQL
    - Criar as tabelas do banco de dados
    - Criar automaticamente o superusuário com as credenciais do `.env`
 
-6. **(Opcional) Popular com dados de teste**
+6. **(Opcional) Popular com dados de teste (apenas para desenvolvimento, arrumar depois)**
    ```bash
    npm run db-seed
    ```
@@ -252,6 +252,10 @@ POST /api/users/login
 |--------|----------|-----------|--------------|
 | POST | `/api/members/create` | Criar novo membro | **Sim** (JWT) |
 | GET | `/api/members/get-all` | Listar todos os membros | **Sim** (JWT) |
+| GET | `/api/members/role/:role` | Listar membros por perfil de usuário (role) | **Sim** (JWT) |
+| GET | `/api/members/ministry/:id` | Listar membros por ministério | **Sim** (JWT) |
+| GET | `/api/members/finance/type/:type` | Listar membros por tipo de contribuição financeira | **Sim** (JWT) |
+| GET | `/api/members/event/:id` | Listar membros por presença em evento | **Sim** (JWT) |
 | GET | `/api/members/get/:id` | Buscar membro por ID | **Sim** (JWT) |
 | PUT | `/api/members/update/:id` | Atualizar membro | **Sim** (JWT) |
 | DELETE | `/api/members/delete/:id` | Deletar membro (soft delete) | **Sim** (JWT) |
@@ -263,8 +267,8 @@ POST /api/users/login
 | Método | Endpoint | Descrição | Autenticação |
 |--------|----------|-----------|--------------|
 | POST | `/api/events/create` | Criar novo evento | **Sim** (JWT) |
-| GET | `/api/events/get-all` | Listar todos os eventos | **Sim** (JWT) |
-| GET | `/api/events/get/:id` | Buscar evento por ID | **Sim** (JWT) |
+| GET | `/api/events/get-all` | Listar todos os eventos | Não |
+| GET | `/api/events/get/:id` | Buscar evento por ID | Não |
 | PUT | `/api/events/update/:id` | Atualizar evento | **Sim** (JWT) |
 | DELETE | `/api/events/delete/:id` | Deletar evento (soft delete) | **Sim** (JWT) |
 | PATCH | `/api/events/activate/:id` | Ativar evento | **Sim** (JWT) |
@@ -275,9 +279,9 @@ POST /api/users/login
 | Método | Endpoint | Descrição | Autenticação |
 |--------|----------|-----------|--------------|
 | POST | `/api/ministries/create` | Criar novo ministério | **Sim** (JWT) |
-| GET | `/api/ministries/get-all` | Listar todos os ministérios | **Sim** (JWT) |
-| GET | `/api/ministries/get/:id` | Buscar ministério por ID | **Sim** (JWT) |
-| PUT | `/api/ministries/update/:id` | Atualizar ministério | **Sim** (JWT) |
+| GET | `/api/ministries/get-all` | Listar todos os ministérios | Não |
+| GET | `/api/ministries/get/:id` | Buscar ministério por ID | Não |
+| PUT | `/api/ministries/update/:id` | Atualizar ministério | Não |
 | DELETE | `/api/ministries/delete/:id` | Deletar ministério (soft delete) | **Sim** (JWT) |
 | PATCH | `/api/ministries/activate/:id` | Ativar ministério | **Sim** (JWT) |
 | DELETE | `/api/ministries/delete/:id/hard` | Deletar ministério permanentemente | **Sim** (JWT) |
