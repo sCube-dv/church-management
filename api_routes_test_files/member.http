@@ -1,5 +1,5 @@
 @baseUrl = http://localhost:3000
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoiMTQ0NWM2ZDktNzg1OC00ZWNjLTlmN2YtMGU3OGU0MzhlNjkxIiwiaWF0IjoxNzY5MzEwMjE2LCJleHAiOjE3NjkzMTM4MTZ9.vCofNRLqsz4XOWUrpoomIBXLhHqmPSZgSHidN66TIJg
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoiMTQ0NWM2ZDktNzg1OC00ZWNjLTlmN2YtMGU3OGU0MzhlNjkxIiwiaWF0IjoxNzY5MzY4MTM0LCJleHAiOjE3NjkzNzE3MzR9.h1HsGhEsZgNe6sVPVSSadlkAxZOYGdYD7yz7gF8p-tQ
 
 # ========================================================
 #                    MEMBROS (tb_members)
@@ -12,18 +12,23 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-    "name": "Maria Clara",
-    "cpf": "78456475532",
-    "birth_date": "2005-03-07",
-    "baptism_date": "2015-04-25",
-    "phone": "98999878879",
+    "name": "Elias Santos",
+    "cpf": "12345678901",
+    "birth_date": "2005-01-25",
+    "baptism_date": "2015-01-25",
+    "phone": "98999999999",
     "status": "active",
-    "id_user": "7b3272b5-d9dd-4051-adf6-e6dd39c08f76"
+    "id_user": "404e1032-cfa6-4fdf-83b6-c852e32d71e2"
 }
 
 ###
 # Listar todos os membros
 GET {{baseUrl}}/api/members/get-all
+Authorization: Bearer {{token}}
+
+###
+# Listar membros por role (ex: admin, member, guest)
+GET {{baseUrl}}/api/members/role/admin
 Authorization: Bearer {{token}}
 
 ###

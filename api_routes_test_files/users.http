@@ -4,7 +4,7 @@
 # ========================================================
 
 @baseUrl = http://localhost:3000
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoiMTQ0NWM2ZDktNzg1OC00ZWNjLTlmN2YtMGU3OGU0MzhlNjkxIiwiaWF0IjoxNzY5MzE0MTA3LCJleHAiOjE3NjkzMTc3MDd9.imKfF9ZpErFgu-MjuycNN3IMW49JO6370tWb2CpyU3E
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoiMTQ0NWM2ZDktNzg1OC00ZWNjLTlmN2YtMGU3OGU0MzhlNjkxIiwiaWF0IjoxNzY5MzY4MTM0LCJleHAiOjE3NjkzNzE3MzR9.h1HsGhEsZgNe6sVPVSSadlkAxZOYGdYD7yz7gF8p-tQ
 
 # ========================================================
 #                    AUTENTICAÇÃO

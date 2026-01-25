@@ -1,4 +1,4 @@
-import Member from '../models/Member.js';
+import { Member, User } from '../models/index.js';
 
 /* MemberService - Logic to manage members */
 class MemberService {
@@ -30,6 +30,24 @@ class MemberService {
         });
         return members;
     } // end getAllMembers
+
+    // List members by user role
+    static async getMembersByRole(role) {
+        const members = await Member.findAll({
+            where: {
+                status: 'active'
+            },
+            include: [{
+                model: User,
+                where: {
+                    role: role,
+                    is_active: true
+                },
+                attributes: { exclude: ['password'] }
+            }]
+        });
+        return members;
+    } // end getMembersByRole
 
     // Get member by id
     static async getMemberById(memberId) {

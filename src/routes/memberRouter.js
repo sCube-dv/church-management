@@ -12,6 +12,9 @@ router.post('/members/create', auth, Member.createMember);
 // Get all members
 router.get('/members/get-all', auth, Member.getAllMembers);
 
+// Get members by role
+router.get('/members/role/:role', auth, Member.getMembersByRole);
+
 // Get member by ID
 router.get('/members/get/:id', auth, Member.getMemberById);
 
